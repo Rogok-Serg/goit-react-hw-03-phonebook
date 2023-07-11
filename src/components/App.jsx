@@ -22,7 +22,7 @@ export class App extends React.Component {
     }
   }
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(_, prevState) {
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
@@ -41,6 +41,7 @@ export class App extends React.Component {
 
     if (comparison) {
       alert(`${contactData.name} is already in contacts!`);
+      return;
     }
     const contact = {
       ...contactData,
